@@ -4,8 +4,13 @@
 # Stop on error
 set -e
 
-service sshd start
-service php-fpm start
+if [[ -e /first_run ]]; then
+  source /scripts/first_run.sh
+else
+  source /scripts/normal_run.sh
+fi
 
-echo "Starting Nginx..."
-/usr/sbin/nginx
+pre_start_action
+post_start_action
+
+exec supervisord -c /etc/supervisor/conf.d/supervisord.conf

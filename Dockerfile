@@ -37,6 +37,7 @@ RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/lo
 
 ADD scripts /scripts
 RUN chmod +x /scripts/start.sh
+RUN touch /first_run
 
 # Expose our web root and log directories log.
 VOLUME ["/srv/www", "/var/log"]
