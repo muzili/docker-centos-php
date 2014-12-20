@@ -5,12 +5,14 @@ pre_start_action() {
 nodaemon=true
 
 [program:php5-fpm]
-command=/usr/sbin/php5-fpm --nodaemonize
+command=/usr/sbin/php-fpm --nodaemonize
 
 [program:nginx]
 command=/usr/sbin/nginx
 
 EOF
+    mkdir -p /var/log/php-fpm/
+    mkdir -p /var/log/nginx
 }
 
 post_start_action() {
