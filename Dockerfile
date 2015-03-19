@@ -2,9 +2,6 @@ FROM muzili/centos-nginx
 
 MAINTAINER Joshua Lee <muzili@gmail.com>
 
-# Install Remi Collet's repo for CentOS 6
-RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
-
 # Install PHP stuff
 RUN yum -y install --enablerepo=remi,remi-php55 \
   php-fpm \
