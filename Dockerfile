@@ -28,6 +28,7 @@ RUN mv /etc/php-fpm.d/www.conf /etc/php-fpm.d/www.conf.default
 ADD etc/www.conf /etc/php-fpm.d/www.conf
 
 ADD etc/default.conf /etc/nginx/sites-available/default.conf
+RUN rm -f /etc/nginx/sites-enabled/*
 RUN ln -s /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled
 
 # Add Composer
